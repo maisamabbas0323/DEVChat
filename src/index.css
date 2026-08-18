@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color-scheme: dark;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: #0A0B10;
+  color: #F5F7FA;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#root {
+  min-height: 100dvh;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Light theme overrides */
+.light body,
+.light #root {
+  background-color: #F8F9FB;
+  color: #1A1B26;
+}
+
+::selection {
+  background-color: rgba(99, 102, 241, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+dialog {
+  border: none;
+  padding: 0;
+  max-width: min(28rem, calc(100vw - 2rem));
+  width: 100%;
+}
+
+dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+img,
+video,
+svg,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+  overflow-wrap: normal;
+  word-break: normal;
+  color: #C9D1D9;
+}
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #4B5563;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-type {
+  color: #C4B5FD;
+  font-weight: 500;
+}
+
+.hljs-literal,
+.hljs-number,
+.hljs-tag .hljs-attr,
+.hljs-template-variable,
+.hljs-variable {
+  color: #F0ABFC;
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: #6EE7B7;
+}
+
+.hljs-title,
+.hljs-title.class_,
+.hljs-section,
+.hljs-selector-id {
+  color: #93C5FD;
+  font-weight: 500;
+}
+
+.hljs-subst {
+  color: #C9D1D9;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #FCD34D;
+}
+
+.hljs-link,
+.hljs-meta,
+.hljs-selector-class {
+  color: #67E8F9;
+}
+
+.hljs-built_in,
+.hljs-name {
+  color: #67E8F9;
+}
+
+.hljs-attr {
+  color: #93C5FD;
+}
+
+.hljs-params {
+  color: #C9D1D9;
+}
+
+.hljs-addition {
+  color: #6EE7B7;
+  background-color: rgba(110, 231, 183, 0.1);
+}
+
+.hljs-deletion {
+  color: #FCA5A5;
+  background-color: rgba(252, 165, 165, 0.1);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+.hljs-function {
+  color: #93C5FD;
+}
+
+/* GitHub theme */
+.hljs-theme-github .hljs {
+  color: #C9D1D9;
+}
+.hljs-theme-github .hljs-comment,
+.hljs-theme-github .hljs-quote { color: #8B949E; font-style: italic; }
+.hljs-theme-github .hljs-keyword,
+.hljs-theme-github .hljs-selector-tag,
+.hljs-theme-github .hljs-type { color: #FF7B72; font-weight: 500; }
+.hljs-theme-github .hljs-string,
+.hljs-theme-github .hljs-doctag,
+.hljs-theme-github .hljs-regexp { color: #A5D6FF; }
+.hljs-theme-github .hljs-title,
+.hljs-theme-github .hljs-title.class_,
+.hljs-theme-github .hljs-section { color: #D2A8FF; font-weight: 500; }
+.hljs-theme-github .hljs-number,
+.hljs-theme-github .hljs-literal { color: #79C0FF; }
+.hljs-theme-github .hljs-attr { color: #79C0FF; }
+.hljs-theme-github .hljs-built_in,
+.hljs-theme-github .hljs-name { color: #7EE787; }
+.hljs-theme-github .hljs-symbol,
+.hljs-theme-github .hljs-bullet { color: #FFA657; }
+.hljs-theme-github .hljs-addition { color: #AFF5B4; background-color: rgba(110, 231, 183, 0.1); }
+.hljs-theme-github .hljs-deletion { color: #FFA198; background-color: rgba(252, 165, 165, 0.1); }
+
+/* Monokai theme */
+.hljs-theme-monokai .hljs {
+  color: #F8F8F2;
+}
+.hljs-theme-monokai .hljs-comment,
+.hljs-theme-monokai .hljs-quote { color: #75715E; font-style: italic; }
+.hljs-theme-monokai .hljs-keyword,
+.hljs-theme-monokai .hljs-selector-tag { color: #F92672; font-weight: 500; }
+.hljs-theme-monokai .hljs-string,
+.hljs-theme-monokai .hljs-doctag,
+.hljs-theme-monokai .hljs-regexp { color: #E6DB74; }
+.hljs-theme-monokai .hljs-title,
+.hljs-theme-monokai .hljs-title.class_ { color: #A6E22E; font-weight: 500; }
+.hljs-theme-monokai .hljs-section { color: #F92672; font-weight: 500; }
+.hljs-theme-monokai .hljs-number,
+.hljs-theme-monokai .hljs-literal { color: #AE81FF; }
+.hljs-theme-monokai .hljs-attr { color: #A6E22E; }
+.hljs-theme-monokai .hljs-built_in { color: #66D9EF; }
+.hljs-theme-monokai .hljs-name { color: #66D9EF; }
+.hljs-theme-monokai .hljs-type { color: #66D9EF; }
+.hljs-theme-monokai .hljs-symbol,
+.hljs-theme-monokai .hljs-bullet { color: #AE81FF; }
+.hljs-theme-monokai .hljs-params { color: #F8F8F2; }
+.hljs-theme-monokai .hljs-addition { color: #E6DB74; background-color: rgba(230, 219, 116, 0.08); }
+.hljs-theme-monokai .hljs-deletion { color: #F92672; background-color: rgba(249, 38, 114, 0.08); }
+
+/* Dracula theme */
+.hljs-theme-dracula .hljs {
+  color: #F8F8F2;
+}
+.hljs-theme-dracula .hljs-comment,
+.hljs-theme-dracula .hljs-quote { color: #6272A4; font-style: italic; }
+.hljs-theme-dracula .hljs-keyword,
+.hljs-theme-dracula .hljs-selector-tag { color: #FF79C6; font-weight: 500; }
+.hljs-theme-dracula .hljs-string,
+.hljs-theme-dracula .hljs-doctag,
+.hljs-theme-dracula .hljs-regexp { color: #F1FA8C; }
+.hljs-theme-dracula .hljs-title,
+.hljs-theme-dracula .hljs-title.class_ { color: #50FA7B; font-weight: 500; }
+.hljs-theme-dracula .hljs-section { color: #FF79C6; font-weight: 500; }
+.hljs-theme-dracula .hljs-number,
+.hljs-theme-dracula .hljs-literal { color: #BD93F9; }
+.hljs-theme-dracula .hljs-attr { color: #50FA7B; }
+.hljs-theme-dracula .hljs-built_in { color: #8BE9FD; }
+.hljs-theme-dracula .hljs-name { color: #8BE9FD; }
+.hljs-theme-dracula .hljs-type { color: #8BE9FD; }
+.hljs-theme-dracula .hljs-symbol,
+.hljs-theme-dracula .hljs-bullet { color: #BD93F9; }
+.hljs-theme-dracula .hljs-params { color: #F8F8F2; }
+.hljs-theme-dracula .hljs-addition { color: #50FA7B; background-color: rgba(80, 250, 123, 0.08); }
+.hljs-theme-dracula .hljs-deletion { color: #FF5555; background-color: rgba(255, 85, 85, 0.08); }
+
+@media (hover: none) and (pointer: coarse) {
+  .touch-show {
+    opacity: 1 !important;
+  }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes highlight-pulse {
+  0% { background-color: transparent; }
+  20% { background-color: rgba(99, 102, 241, 0.12); }
+  100% { background-color: transparent; }
+}
+
+.animate-highlight-pulse {
+  animation: highlight-pulse 2s ease-out;
+  border-radius: 8px;
+}
