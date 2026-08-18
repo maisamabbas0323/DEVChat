@@ -55,8 +55,8 @@ It is designed as a polished, fully-featured developer chat tool with a dark-onl
 ### Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/devchat.git
-cd devchat
+git clone https://github.com/maisamabbas0323/DEVChat.git
+cd DEVChat
 npm install
 ```
 
